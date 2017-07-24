@@ -1,8 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+
 body,
 html {
     height: 100%;
     color: gray;
     line-height: 1.8;
+    font-size: 15px;
 }
 
 body {
@@ -19,6 +24,11 @@ h6 {
     font-family: "Lato", sans-serif;
 }
 
+h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
 .white {
     color: black;
     background-color: white;
@@ -32,6 +42,7 @@ h6 {
     font-size: 15px;
 }
 
+*,
 *:before,
 *:after {
     box-sizing: inherit;
@@ -62,10 +73,10 @@ h6 {
 }
 
 .button {
-    width: 100%;
-    display: block;
+    display: inline-block;
     outline: none;
     text-align: left;
+    border: none;
 }
 
 .right {
@@ -108,13 +119,18 @@ h6 {
     transform: translate(-50%, -50%);
 }
 
-.container {
+.display-container {
     position: relative;
 }
 
 .content {
+    max-width: 980px;
     padding: 64px 0px;
-    margin: 0 16px;
+    margin: auto;
+}
+
+.container {
+    padding: 0.1em 16px;
 }
 
 .wide {
@@ -137,13 +153,13 @@ h6 {
     min-height: 100%;
 }
 
-.animate-opacity {
-    animation: opac 0.8s;
+.bg-img-2 {
+    background-image: url('img/bg-img-2.jpg');
+    min-height: 400px;
 }
 
-.col {
-    float: left;
-    width: 100%;
+.animate-opacity {
+    animation: opac 0.8s;
 }
 
 .round {
@@ -162,6 +178,86 @@ h6 {
 
 .card {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.row-padding::before,
+.row-padding::after,
+.container::before,
+.container::after,
+.row::before,
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col {
+    float: left;
+    width: 100%;
+    padding: 12px 24px;
+}
+
+.padding-16 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.padding-64 {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.padding-small {
+    padding: 4px 8px;
+}
+
+.padding-large {
+    padding: 12px 24px;
+}
+
+.margin-16 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.large {
+    font-size: 18px;
+}
+
+.x-large {
+    font-size: 24px;
+}
+
+.xx-large {
+    font-size: 36px;
+}
+
+.lt-sp-10 {
+    letter-spacing: 10px;
+}
+
+.light-gray {
+    color: black;
+    background-color: #f1f1f1;
+}
+
+.dark-gray {
+    color: white;
+    background-color: #616161;
+}
+
+.quarter {
+    float: left;
+    width: 100%;
+}
+
+.text-white {
+    color: white;
+}
+
+.row-padding,
+.row-padding>.col {
+    padding: 0 8px;
 }
 
 @keyframes animatetop {
@@ -184,6 +280,15 @@ h6 {
 @media (min-width:601px) {
     .hide-medium {
         display: none
+    }
+    .col.col2 {
+        width: 49.9999%;
+    }
+    .col.col4 {
+        width: 24.9999%;
+    }
+    .quarter {
+        width: 24.9999%;
     }
 }
 
