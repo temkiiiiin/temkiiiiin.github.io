@@ -7,25 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script>
-        function toggle() {
-            var el = document.getElementById("barBlock");
-            if (el.className.indexOf("show") == -1) {
-                el.className += " show";
-            } else {
-                el.className = el.className.replace(" show", "");
-            }
-        }
-
-        window.onscroll = function() {
-            var navBar = document.getElementById("navBar");
-            if (document.body.scrollTop > 100) {
-                navBar.className = "bar white animate-top card";
-            } else {
-                navBar.className = "bar";
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -52,10 +33,10 @@
         </div>
 
         <div id="barBlock" class="bar-block white hide hide-medium">
-            <a href="#about" class="button button-size-text">ABOUT</a>
-            <a href="#portfolio" class="button button-size-text">PORTFOLIO</a>
-            <a href="#contact" class="button button-size-text">CONTACT</a>
-            <a href="#" class="button button-size-text">SEARCH</a>
+            <a href="#about" class="button bar-button button-size-text">ABOUT</a>
+            <a href="#portfolio" class="button bar-button button-size-text">PORTFOLIO</a>
+            <a href="#contact" class="button bar-button button-size-text">CONTACT</a>
+            <a href="#" class="button bar-button button-size-text">SEARCH</a>
         </div>
     </div>
 
@@ -142,7 +123,7 @@
         </div>
     </div>
 
-    <div id="portfoio" class="container content padding-64">
+    <div id="portfolio" class="container content padding-64">
         <h3 class="center">MY WORK</h3>
         <p class="center">
             <em>
@@ -156,38 +137,75 @@
         <!--работы-->
         <div class="center row-padding">
             <div class="col col4">
-                <img src="img/photos/p1.jpg" alt="p1" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p1.jpg" alt="p1" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
             <div class="col col4">
-                <img src="img/photos/p2.jpg" alt="p2" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p2.jpg" alt="p2" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
             <div class="col col4">
-                <img src="img/photos/p3.jpg" alt="p3" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p3.jpg" alt="p3" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
             <div class="col col4">
-                <img src="img/photos/p4.jpg" alt="p4" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p4.jpg" alt="p4" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
         </div>
 
         <div class="center row-padding margin-16">
             <div class="col col4">
-                <img src="img/photos/p5.jpg" alt="p5" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p5.jpg" alt="p5" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
             <div class="col col4">
-                <img src="img/photos/p6.jpg" alt="p6" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p6.jpg" alt="p6" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
             <div class="col col4">
-                <img src="img/photos/p7.jpg" alt="p7" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p7.jpg" alt="p7" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
             <div class="col col4">
-                <img src="img/photos/p8.jpg" alt="p8" onclick="phtOnClick(this)" style="width: 100%">
+                <img src="img/photos/p8.jpg" alt="p8" onclick="phtOnClick(this)" style="width: 100%" class="hover-opacity">
             </div>
 
             <button class="button padding-large light-gray" style="margin-top: 64px;">
                 LOAD MORE
             </button>
         </div>
+
+        <div id="modal" class="black modal" style="display: none;" onclick="this.style.display='none'">
+            <span class="button button-size-text large black display-topright" title="Close Image">
+                <i class="fa fa-remove"></i>
+            </span>
+
+            <div class="center modal-content padding-64">
+                <img id="modalImage" class="image" src="">
+                <p id="caption" class="large opacity"></p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function toggle() {
+            var el = document.getElementById("barBlock");
+            if (el.className.indexOf("show") == -1) {
+                el.className += " show";
+            } else {
+                el.className = el.className.replace(" show", "");
+            }
+        }
+
+        window.onscroll = function() {
+            var navBar = document.getElementById("navBar");
+            if (document.body.scrollTop > 100) {
+                navBar.className = "bar white animate-top card";
+            } else {
+                navBar.className = "bar";
+            }
+        }
+
+        function phtOnClick(e) {
+            document.getElementById("modal").style = 'display: block';
+            document.getElementById("modalImage").src = e.src;
+            document.getElementById("caption").innerHTML = e.alt;
+        }
+    </script>
 </body>
 
 </html>
