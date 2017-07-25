@@ -162,6 +162,11 @@ h3 {
     min-height: 400px;
 }
 
+.bg-img-3 {
+    background-image: url('img/bg-img-3.jpg');
+    min-height: 400px;
+}
+
 .animate-opacity {
     animation: opac 0.8s;
 }
@@ -204,6 +209,11 @@ h3 {
 .padding-16 {
     padding-top: 16px;
     padding-bottom: 16px;
+}
+
+.padding-32 {
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 .padding-64 {
@@ -325,6 +335,12 @@ h3 {
     .col.col2 {
         width: 49.9999%;
     }
+    .col.col3-1 {
+        width: 33.3333%;
+    }
+    .col.col3-2 {
+        width: 66.6666%;
+    }
     .col.col4 {
         width: 24.9999%;
     }
@@ -343,7 +359,9 @@ h3 {
 }
 
 @media only screen and (max-device-width: 1024px) {
-    .bg-img-1 {
+    .bg-img-1,
+    .bg-img-2,
+    .bg-img-3 {
         background-attachment: scroll;
     }
 }
