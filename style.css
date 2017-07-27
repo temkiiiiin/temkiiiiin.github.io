@@ -29,6 +29,10 @@ h3 {
     font-weight: 400;
 }
 
+a {
+    color: inherit;
+}
+
 .white {
     color: black;
     background-color: white;
@@ -235,6 +239,10 @@ h3 {
 .margin-16 {
     margin-top: 16px;
     margin-bottom: 16px;
+}
+
+.margin-right {
+    margin-right: 16px;
 }
 
 .large {
