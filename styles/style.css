@@ -17,7 +17,7 @@ body {
     z-index: 5;
 }
 
-.m-menu__item {
+.m-menu__buton {
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -25,28 +25,58 @@ body {
     flex-direction: column;
     font-size: 13px;
     padding: 8px 0 10px 0;
+    background-color: inherit;
+    border: none;
+    outline: none;
 }
 
-.m-menu__item-text {
+.m-menu__buton-text {
     font-size: 13px;
     color: #4CAF50;
     display: none;
 }
 
-.m-menu__item-text__active {
+.show-text>.text-active {
     display: inline;
 }
 
-.modal-menu {
-    position: relative;
+.menu {
+    background-color: white;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 3;
+    display: block;
+    overflow-y: scroll;
 }
 
-.modal-menu__item {}
+.menu__content {
+    padding: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.hide {
+    display: none;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.menu__button {
+    margin: 4px;
+    border: none;
+    height: 56px;
+    background-color: white;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
 
 .m-header {
     display: flex;
