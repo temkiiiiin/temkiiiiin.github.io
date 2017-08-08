@@ -10,6 +10,7 @@
 <body>
     <div class="m-menu">
         <button class="m-menu__buton" onclick="tog(this)">
+            <div class="ripple-container"></div>
             <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#4CAF50" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
             <span class="m-menu__buton-text text-active">Меню</span>
         </button>
@@ -80,6 +81,35 @@
 
             var menu = document.getElementById("menu");
             menu.classList.toggle("hide");
+        }
+
+        var btnList = document.getElementsByClassName("m-menu__buton");
+        for (var i = 0; i < btnList.length; i++) {
+            btnList[i].addEventListener('click', ripple, false);
+        }
+
+        function getCoords(elem) {
+            var box = elem.getBoundingClientRect();
+
+            return {
+                top: box.top + pageYOffset,
+                left: box.left + pageXOffset,
+            };
+        }
+
+        function ripple(e) {
+            var rippleContainer = this.children[0];
+            coords = getCoords(rippleContainer);
+
+            var div = document.createElement("div");
+            div.className = "ripple-effect";
+            div.style.left = (e.pageX - coords.left) + "px";
+            div.style.top = (e.pageY - coords.top) + "px";
+
+            rippleContainer.appendChild(div);
+            setTimeout(function() {
+                rippleContainer.removeChild(div);
+            }, 500);
         }
     </script>
 </body>
