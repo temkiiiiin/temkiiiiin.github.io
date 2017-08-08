@@ -12,18 +12,44 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 56px;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 0 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 5;
 }
 
 .m-menu__item {
-    width: 25%;
-    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-size: 13px;
     background-color: white;
     border-radius: 3px;
     border: 1px solid #4CAF50;
-    padding: 16px 0;
+    padding: 8px 0 10px 0;
 }
+
+.m-menu__item-text {
+    font-size: 13px;
+    color: #4CAF50;
+    display: none;
+}
+
+.m-menu__item-text__active {
+    display: inline;
+}
+
+.modal-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.modal-menu__item {}
 
 .m-header {
     display: flex;
