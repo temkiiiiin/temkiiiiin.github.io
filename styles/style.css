@@ -17,7 +17,7 @@ body {
     z-index: 5;
 }
 
-.m-menu__item {
+.m-menu__buton {
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -25,28 +25,60 @@ body {
     flex-direction: column;
     font-size: 13px;
     padding: 8px 0 10px 0;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    position: relative;
 }
 
-.m-menu__item-text {
+.m-menu__buton-text {
     font-size: 13px;
     color: #4CAF50;
     display: none;
 }
 
-.m-menu__item-text__active {
+.show-text>.text-active {
     display: inline;
 }
 
-.modal-menu {
-    position: relative;
+.menu {
+    background-color: white;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 3;
+    display: block;
+    overflow-y: scroll;
 }
 
-.modal-menu__item {}
+.menu__content {
+    padding: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.hide {
+    display: none;
+}
+
+.hide-overflow {
+    overflow: hidden;
+}
+
+.menu__button {
+    margin: 4px;
+    border: none;
+    height: 56px;
+    background-color: white;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
 
 .m-header {
     display: flex;
@@ -54,7 +86,7 @@ body {
     align-items: center;
     font-size: 20px;
     background-color: white;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     padding: 8px 0;
 }
 
@@ -75,4 +107,36 @@ body {
     height: 200px;
     background-color: white;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.ripple-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+}
+
+.ripple-effect {
+    position: absolute;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    animation: ripple-animation 0.5s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(50);
+        opacity: 0;
+    }
 }
