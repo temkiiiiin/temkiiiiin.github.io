@@ -12,7 +12,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
+        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/login.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -34,12 +34,12 @@ public class Login extends HttpServlet {
         if (hasError) {
             request.setAttribute("errorString", errorString);
 
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/login.jsp");
             dispatcher.forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("loginedUser", userName);
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/views/index.jsp");
         }
     }
 

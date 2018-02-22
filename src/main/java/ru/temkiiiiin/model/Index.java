@@ -14,10 +14,10 @@ public class Index extends HttpServlet {
             throws ServletException, IOException {
         String userName = request.getParameter("userName");
         if (userName == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/login.jsp");
             dispatcher.forward(request, response);
         } else {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/index.jsp");
             dispatcher.forward(request, response);
         }
     }
