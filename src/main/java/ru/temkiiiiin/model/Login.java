@@ -33,14 +33,10 @@ public class Login extends HttpServlet {
 
         if (hasError) {
             request.setAttribute("errorString", errorString);
-            //response.getWriter().print(errorString + " " + userName + " " + password);
-
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("login.jsp");
-            dispatcher.forward(request, response);
+            getServletContext().getRequestDispatcher("/views/login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("loginedUser", userName);
-
             storeUserCookie(response, userName);
 
             //response.getWriter().print(errorString + " " + userName + " " + password);
