@@ -10,8 +10,9 @@
         <p style="color: red;">${errorString}</p>
 
         <form method="POST" action="${pageContext.request.contextPath}/login">
-            <input type="text" name="userName" value= "${user.userName}" />
-            <input type="text" name="userName" />
+            <input type="text" name="userName" value= "${user.userName}" /><br><br>
+            <input type="text" name="password" /><br><br>
+            <input type="submit" value="submit" />
         </form>
     </body>
 </html>
