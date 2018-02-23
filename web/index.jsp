@@ -8,6 +8,6 @@
     <body>
         <h1>Info Page</h1>
 
-        User Name: <b>${user.userName}</b>
+        User Name: <b>${loginedUser}</b>
     </body>
 </html>
