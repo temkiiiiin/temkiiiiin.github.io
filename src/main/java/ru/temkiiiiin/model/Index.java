@@ -12,12 +12,14 @@ public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userName = request.getParameter("userName");
-        if (userName == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/login.jsp");
+        HttpSession session = request.getSession();
+        Object user = session.getAttribute("loginedUser");
+
+        if (user == null) {
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
             dispatcher.forward(request, response);
         } else {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/index.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
         }
     }
