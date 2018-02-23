@@ -16,10 +16,10 @@ public class Index extends HttpServlet {
         Object user = session.getAttribute("loginedUser");
 
         if (user == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
         } else {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         }
     }
