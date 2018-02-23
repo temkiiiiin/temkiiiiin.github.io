@@ -16,10 +16,9 @@ public class Index extends HttpServlet {
         Object user = session.getAttribute("loginedUser");
 
         if (user == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
         } else {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/index.jsp");
             dispatcher.forward(request, response);
         }
     }
