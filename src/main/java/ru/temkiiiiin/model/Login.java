@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
             request.setAttribute("errorString", errorString);
             //response.getWriter().print(errorString + " " + userName + " " + password);
 
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("login.jsp");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
             dispatcher.forward(request, response);
         } else {
             HttpSession session = request.getSession();
@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
             storeUserCookie(response, userName);
 
             //response.getWriter().print(errorString + " " + userName + " " + password);
-            response.sendRedirect(request.getContextPath() + "index.jsp");
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
     }
 
