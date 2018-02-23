@@ -33,16 +33,18 @@ public class Login extends HttpServlet {
 
         if (hasError) {
             request.setAttribute("errorString", errorString);
-            response.getWriter().print(errorString + " " + userName + " " + password);
+            //response.getWriter().print(errorString + " " + userName + " " + password);
 
-            //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/views/login.jsp");
-            //dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
+            dispatcher.forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("loginedUser", userName);
 
-            response.getWriter().print(errorString + " " + userName + " " + password);
-            //response.sendRedirect(request.getContextPath() + "/views/index.jsp");
+            storeUserCookie(response, userName);
+
+            //response.getWriter().print(errorString + " " + userName + " " + password);
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
     }
 
